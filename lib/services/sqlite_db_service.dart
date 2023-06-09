@@ -24,10 +24,6 @@ class SqliteDatabaseService {
         db.execute(
           "CREATE TABLE apikey(id INTEGER PRIMARY KEY, key TEXT);",
         );
-        // db.execute(
-        //   "CREATE TABLE cart(id INTEGER PRIMARY KEY, itemId INTEGER, itemDesc Text, mrp Text, qnty INTEGER);",
-        // );
-        // more create statements....
       },
       version: 5,
     );

@@ -1,53 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gpt_resume_generator/state/gpt_key_provider.dart';
+import 'package:gpt_resume_generator/consumer_application_widget.dart';
 
-void main() => runApp(const ProviderScope(child: Application()));
+void main() => runApp(const ProviderScope(child: MainAppWidget()));
 
-class Application extends ConsumerWidget {
-  const Application({super.key});
+class MainAppWidget extends StatelessWidget {
+  const MainAppWidget({super.key});
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final gptApikeyState = ref.watch(gptKeyProvider);
-    return MaterialApp(
-      home: !gptApikeyState.initialized
-          ? const LoadingScreen()
-          : gptApikeyState.key == null
-              ? const ApiKeyParsingScreen()
-              : const MainApplicationScreen(),
-    );
-  }
-}
-
-class ApiKeyParsingScreen extends StatelessWidget {
-  const ApiKeyParsingScreen({super.key});
-
-  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-
-class LoadingScreen extends StatelessWidget {
-  const LoadingScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('LOADING'),
-      ),
-    );
-  }
-}
-
-class MainApplicationScreen extends StatelessWidget {
-  const MainApplicationScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
+    return const ConsumerApplicationWidget();
   }
 }

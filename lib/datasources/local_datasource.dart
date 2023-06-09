@@ -9,11 +9,17 @@ class LocalDataSource extends ILocalDatasource {
     final db = await service.database;
     final result = await db.rawQuery('SELECT * from apikey');
     print(result);
+    return null;
   }
 
   @override
   Future<void> getStoredResumeData() {
     // TODO: implement getStoredResumeData
+    throw UnimplementedError();
+  }
+
+  setApiKey(String key) async {
+    // TODO: implement setApiKey
     throw UnimplementedError();
   }
 }
