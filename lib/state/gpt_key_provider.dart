@@ -14,7 +14,6 @@ class GptKeyStateNotifier extends StateNotifier<GptKeyState> {
   }
 
   Future<void> initialize() async {
-    print('hitting');
     final String? key = await datasource.getGptApiKey();
     state = GptKeyState(key: key, initialized: true);
   }

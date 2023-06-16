@@ -6,10 +6,9 @@ class LocalDataSource extends ILocalDatasource {
 
   @override
   Future<String?> getGptApiKey() async {
-    final db = await service.database;
-    final result = await db.rawQuery('SELECT * from apikey');
-    print(result);
-    return null;
+    final database = await service.database;
+    final result = await database.get('SELECT * FROM api_key');
+    return result.toString();
   }
 
   @override
@@ -18,8 +17,20 @@ class LocalDataSource extends ILocalDatasource {
     throw UnimplementedError();
   }
 
-  setApiKey(String key) async {
+  Future<void> setApiKey(String key) async {
     // TODO: implement setApiKey
     throw UnimplementedError();
   }
+
+  Future<void> getExperienceItems() async {
+    // TODO: implement getExperienceItems
+    throw UnimplementedError();
+  }
+
+  Future<void> getPersonalInformation() async {
+    // TODO: implement getPersonalInformation
+    throw UnimplementedError();
+  }
+
+  Future<void> savePersonalInformation() async {}
 }
