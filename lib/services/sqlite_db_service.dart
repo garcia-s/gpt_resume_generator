@@ -17,15 +17,5 @@ class SqliteDatabaseService {
     return _database!;
   }
 
-  Future<Database> _init() async {
-    return await openDatabase(
-      join(await getDatabasesPath(), 'gpt_resume_database.db'),
-      onCreate: (db, version) {
-        db.execute(
-          "CREATE TABLE apikey(id INTEGER PRIMARY KEY, key TEXT);",
-        );
-      },
-      version: 5,
-    );
-  }
+  Future<Database> _init() async {}
 }
